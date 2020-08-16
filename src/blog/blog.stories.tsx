@@ -3,7 +3,17 @@ import React from "react";
 
 import { AudioPost, Props as audioPostProps } from "./AudioPost";
 
-export default { title: "Blog" };
+export default {
+  title: "Blog",
+  parameters: {
+    backgrounds: {
+      default: "sky",
+      values: [
+        { name: "sky", value: "linear-gradient(45deg, #DFEAF4, #FFFFFF)" },
+      ],
+    },
+  },
+};
 
 const Template: Story<audioPostProps> = (args) => <AudioPost {...args} />;
 
