@@ -13,8 +13,6 @@ const darkTextColor = "#111B3D";
 
 const Panel = styled.div`
   box-sizing: border-box;
-  min-width: 300px;
-  height: auto;
   background: white;
   padding: 30px;
   border-radius: 15px;
