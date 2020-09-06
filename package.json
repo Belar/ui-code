@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "npm run storybook",
-    "storybook": "start-storybook --ci -p 8000",
-    "build-storybook": "build-storybook -c .storybook -o dist",
+    "storybook": "start-storybook --ci -p 8000 -s static",
+    "build-storybook": "build-storybook -c .storybook -o dist -s static",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
