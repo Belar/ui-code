@@ -10,7 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          'Based on "Blog Components" from day #1148 of [uidesigndaily.com](https://www.uidesigndaily.com/posts/figma-blog-components-article-card-day-1148)',
+          'Based on "Blog Components" from day #1148 of [uidesigndaily.com](https://www.uidesigndaily.com/posts/figma-blog-components-article-card-day-1148). Photo by [Allef Vinicius](https://unsplash.com/@seteph) on [Unsplash](https://unsplash.com/photos/c9jTFfa7Njg)',
       },
     },
     backgrounds: {
