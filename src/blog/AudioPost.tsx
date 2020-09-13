@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Button } from "./Button";
-import { Panel, Heading, TimeLabel } from "./styled";
+import { Panel, Heading, TimeLabel, TwoColumnSides } from "./styled";
 
 export interface Props {
   category?: string;
@@ -18,12 +18,6 @@ const Category = styled.span`
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
-`;
-
-const TwoColumnSides = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 `;
 
 export function AudioPost(props: Props): React.ReactElement {

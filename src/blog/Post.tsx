@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Panel, Heading, TimeLabel } from "./styled";
+import { Panel, Heading, TimeLabel, TwoColumnSides } from "./styled";
 import { PostInfo } from "./PostInfo";
 
 export interface Props {
@@ -63,8 +63,10 @@ export function Post(props: Props): React.ReactElement {
     <Panel>
       <PostInfo {...postInfo}></PostInfo>
       <Heading color={darkTextColor}>{heading}</Heading>
-      {readTimeInfo}
-      {primaryAction}
+      <TwoColumnSides>
+        {primaryAction}
+        {readTimeInfo}
+      </TwoColumnSides>
     </Panel>
   );
 }

@@ -39,3 +39,9 @@ export const TimeLabel = styled.span<TimeLabelProps>`
   font-size: 16px;
   opacity: 0.6;
 `;
+
+export const TwoColumnSides = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
