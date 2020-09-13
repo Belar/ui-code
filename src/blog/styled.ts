@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { desktop } from "../global/breakpoints";
+import { desktop, tablet } from "../global/breakpoints";
 
 interface HeadingProps {
   readonly color: string;
@@ -27,7 +27,7 @@ export const Heading = styled.h1<HeadingProps>`
   line-height: 1.5;
   margin: 10px auto 20px;
 
-  @media ${desktop} {
+  @media ${tablet} {
     margin: 10px auto 50px;
     font-size: 24px;
   }
