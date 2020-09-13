@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Panel, Heading, TimeLabel } from "./styled";
+import { PostInfo } from "./PostInfo";
 
 export interface Props {
   heading: string;
@@ -14,38 +15,6 @@ export interface Props {
 }
 
 const darkTextColor = "#111B3D";
-
-const ProfilePicture = styled.img`
-  width: 50px;
-  height: 50px;
-  border-radius: 1000px;
-  margin-right: 15px;
-`;
-
-const Info = styled.div`
-  display: flex;
-  align-items: center;
-
-  margin-bottom: 50px;
-`;
-
-const Author = styled.div`
-  font-family: sans-serif;
-  font-weight: 700;
-  font-size: 15px;
-
-  margin-bottom: 5px;
-`;
-
-const Meta = styled.span`
-  font-family: sans-serif;
-  font-size: 14px;
-
-  &:not(:last-of-type)::after {
-    content: "•";
-    margin: auto 5px;
-  }
-`;
 
 const Action = styled.a`
   position: relative;
@@ -71,19 +40,21 @@ const Action = styled.a`
 `;
 
 export function Post(props: Props): React.ReactElement {
+  const { heading, readTime, primaryActionLabel, ...postInfo } = props;
+
+  const readTimeInfo = readTime && (
+    <TimeLabel color={darkTextColor}>{readTime}</TimeLabel>
+  );
+  const primaryAction = primaryActionLabel && (
+    <Action>{primaryActionLabel}</Action>
+  );
+
   return (
     <Panel>
-      <Info>
-        <ProfilePicture src={props.imageUrl} alt="Author's profile picture" />
-        <div>
-          <Author>{props.author}</Author>
-          <Meta>{props.postedTime}</Meta>
-          <Meta>{props.category}</Meta>
-        </div>
-      </Info>
-      <Heading color={darkTextColor}>{props.heading}</Heading>
-      <TimeLabel color={darkTextColor}>{props.readTime}</TimeLabel>
-      <Action>{props.primaryActionLabel}</Action>
+      <PostInfo {...postInfo}></PostInfo>
+      <Heading color={darkTextColor}>{heading}</Heading>
+      {readTimeInfo}
+      {primaryAction}
     </Panel>
   );
 }
