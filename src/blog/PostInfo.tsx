@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { tablet } from "../global/breakpoints";
 
 export interface Props {
   imageUrl?: string;
@@ -12,14 +13,23 @@ const ProfilePicture = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 1000px;
-  margin-right: 15px;
+  margin-bottom: 5px;
+
+  @media ${tablet} {
+    margin: auto 15px 0 0;
+  }
 `;
 
 const Info = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
 
   margin-bottom: 50px;
+
+  @media ${tablet} {
+    flex-direction: row;
+  }
 `;
 
 const Author = styled.div`
@@ -27,16 +37,30 @@ const Author = styled.div`
   font-weight: 700;
   font-size: 15px;
 
-  margin-bottom: 5px;
+  text-align: center;
+
+  margin-bottom: 15px;
+
+  @media ${tablet} {
+    text-align: initial;
+    margin-bottom: 5px;
+  }
 `;
 
-const Meta = styled.span`
+const Meta = styled.div`
   font-family: sans-serif;
   font-size: 14px;
 
-  &:not(:last-of-type)::after {
-    content: "•";
-    margin: auto 5px;
+  text-align: center;
+
+  @media ${tablet} {
+    display: inline;
+    text-align: initial;
+
+    &:not(:last-of-type)::after {
+      content: "•";
+      margin: auto 5px;
+    }
   }
 `;
 
