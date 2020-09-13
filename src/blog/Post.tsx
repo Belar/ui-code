@@ -36,6 +36,16 @@ const Action = styled.a`
 
     left: 0;
     bottom: 0;
+
+    transition: width 0.2s ease-in-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    &::after {
+      width: 100%;
+    }
   }
 `;
 
