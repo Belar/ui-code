@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Button } from "./Button";
+import { Panel, Heading, TimeLabel, TwoColumnSides } from "./styled";
 
 export interface Props {
   category?: string;
@@ -11,14 +12,6 @@ export interface Props {
 
 const darkTextColor = "#111B3D";
 
-const Panel = styled.div`
-  box-sizing: border-box;
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 20px 50px -40px #ff9950;
-`;
-
 const Category = styled.span`
   color: ${darkTextColor};
   font-family: sans-serif;
@@ -27,31 +20,11 @@ const Category = styled.span`
   letter-spacing: 1px;
 `;
 
-const Heading = styled.h1`
-  color: ${darkTextColor};
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 10px auto 20px;
-`;
-
-const PostedTime = styled.span`
-  color: ${darkTextColor};
-  font-family: sans-serif;
-  font-size: 16px;
-  opacity: 0.6;
-`;
-
-const TwoColumnSides = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
 export function AudioPost(props: Props): React.ReactElement {
   return (
     <Panel>
       <Category>{props.category}</Category>
-      <Heading>{props.heading}</Heading>
+      <Heading color={darkTextColor}>{props.heading}</Heading>
       <TwoColumnSides>
         <Button>
           <svg
@@ -63,7 +36,7 @@ export function AudioPost(props: Props): React.ReactElement {
             <polygon points="0 0 10 8 0 16" />
           </svg>
         </Button>
-        <PostedTime>{props.postedTime}</PostedTime>
+        <TimeLabel color={darkTextColor}>{props.postedTime}</TimeLabel>
       </TwoColumnSides>
     </Panel>
   );
