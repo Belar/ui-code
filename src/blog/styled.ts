@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { desktop, tablet } from "../global/breakpoints";
+import { tablet } from "../global/breakpoints";
 
 interface HeadingProps {
   readonly color: string;
@@ -16,7 +16,7 @@ export const Panel = styled.div`
   border-radius: 15px;
   box-shadow: 0px 20px 50px -40px #ff9950;
 
-  @media ${desktop} {
+  @media ${tablet} {
     padding: 70px;
   }
 `;
