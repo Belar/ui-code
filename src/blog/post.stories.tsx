@@ -34,7 +34,7 @@ export const metadata = Template.bind({});
 metadata.args = {
   category: "Solutions Architecture",
   heading: "Token-based Authentication with JMeter",
-  imageUrl: "/post_author.jpg",
+  imageUrl: "post_author.jpg",
   author: "Jessie Holmes",
   postedTime: "29 Jul 2010",
   primaryActionLabel: "Start reading",
