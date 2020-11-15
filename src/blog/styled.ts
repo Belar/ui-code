@@ -3,11 +3,12 @@ import { tablet } from "../global/breakpoints";
 
 interface PanelProps {
   readonly color: string;
+  readonly background: string;
 }
 
 export const Panel = styled.div<PanelProps>`
   box-sizing: border-box;
-  background: white;
+  background: ${(props) => props.background};
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0px 20px 50px -40px #ff9950;

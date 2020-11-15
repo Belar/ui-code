@@ -9,6 +9,7 @@ export interface Props {
   heading: string;
   postedTime?: string;
   textColor?: string;
+  panelColor?: string;
 }
 
 const Category = styled.span`
@@ -19,10 +20,10 @@ const Category = styled.span`
 `;
 
 export function AudioPost(props: Props): React.ReactElement {
-  const { textColor = "#111B3D" } = props;
+  const { textColor = "#111B3D", panelColor = "#FFFFFF" } = props;
 
   return (
-    <Panel color={textColor}>
+    <Panel color={textColor} background={panelColor}>
       <Category>{props.category}</Category>
       <Heading>{props.heading}</Heading>
       <TwoColumnSides>

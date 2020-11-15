@@ -22,6 +22,7 @@ export default {
   },
   argTypes: {
     textColor: { control: "color" },
+    panelColor: { control: "color" },
   },
 };
 

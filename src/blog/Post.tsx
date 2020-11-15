@@ -13,6 +13,7 @@ export interface Props {
   category?: string;
   primaryActionLabel?: string;
   textColor?: string;
+  panelColor?: string;
 }
 
 interface ActionProps {
@@ -58,6 +59,7 @@ export function Post(props: Props): React.ReactElement {
     readTime,
     primaryActionLabel,
     textColor = "#111B3D",
+    panelColor = "#FFFFFF",
     ...postInfo
   } = props;
 
@@ -67,7 +69,7 @@ export function Post(props: Props): React.ReactElement {
   );
 
   return (
-    <Panel color={textColor}>
+    <Panel color={textColor} background={panelColor}>
       <PostInfo {...postInfo}></PostInfo>
       <Heading>{heading}</Heading>
       <TwoColumnSides>
