@@ -1,28 +1,25 @@
 import styled from "styled-components";
 import { tablet } from "../global/breakpoints";
 
-interface HeadingProps {
+interface PanelProps {
   readonly color: string;
 }
 
-interface TimeLabelProps {
-  readonly color: string;
-}
-
-export const Panel = styled.div`
+export const Panel = styled.div<PanelProps>`
   box-sizing: border-box;
   background: white;
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0px 20px 50px -40px #ff9950;
 
+  color: ${(props) => props.color};
+
   @media ${tablet} {
     padding: 70px;
   }
 `;
 
-export const Heading = styled.h1<HeadingProps>`
-  color: ${(props) => props.color};
+export const Heading = styled.h1`
   font-size: 18px;
   line-height: 1.5;
   margin: 10px auto 20px;
@@ -33,8 +30,7 @@ export const Heading = styled.h1<HeadingProps>`
   }
 `;
 
-export const TimeLabel = styled.span<TimeLabelProps>`
-  color: ${(props) => props.color};
+export const TimeLabel = styled.span`
   font-family: sans-serif;
   font-size: 16px;
   opacity: 0.6;

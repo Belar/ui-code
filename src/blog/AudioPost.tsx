@@ -8,12 +8,10 @@ export interface Props {
   category?: string;
   heading: string;
   postedTime?: string;
+  textColor?: string;
 }
 
-const darkTextColor = "#111B3D";
-
 const Category = styled.span`
-  color: ${darkTextColor};
   font-family: sans-serif;
   font-size: 12px;
   text-transform: uppercase;
@@ -21,10 +19,12 @@ const Category = styled.span`
 `;
 
 export function AudioPost(props: Props): React.ReactElement {
+  const { textColor = "#111B3D" } = props;
+
   return (
-    <Panel>
+    <Panel color={textColor}>
       <Category>{props.category}</Category>
-      <Heading color={darkTextColor}>{props.heading}</Heading>
+      <Heading>{props.heading}</Heading>
       <TwoColumnSides>
         <Button>
           <svg
@@ -36,7 +36,7 @@ export function AudioPost(props: Props): React.ReactElement {
             <polygon points="0 0 10 8 0 16" />
           </svg>
         </Button>
-        <TimeLabel color={darkTextColor}>{props.postedTime}</TimeLabel>
+        <TimeLabel>{props.postedTime}</TimeLabel>
       </TwoColumnSides>
     </Panel>
   );

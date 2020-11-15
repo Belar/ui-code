@@ -20,6 +20,9 @@ export default {
       ],
     },
   },
+  argTypes: {
+    textColor: { control: "color" },
+  },
 };
 
 const Template: Story<audioPostProps> = (args) => <AudioPost {...args} />;

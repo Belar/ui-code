@@ -12,17 +12,20 @@ export interface Props {
   postedTime?: string;
   category?: string;
   primaryActionLabel?: string;
+  textColor?: string;
 }
 
-const darkTextColor = "#111B3D";
+interface ActionProps {
+  color: string;
+}
 
-const Action = styled.a`
+const Action = styled.a<ActionProps>`
   position: relative;
   font-family: sans-serif;
   font-weight: 700;
   font-size: 16px;
 
-  color: ${darkTextColor};
+  color: ${(props) => props.color};
 
   padding: 10px 0;
 
@@ -32,7 +35,7 @@ const Action = styled.a`
     width: 30px;
     height: 2px;
 
-    background: ${darkTextColor};
+    background: ${(props) => props.color};
 
     left: 0;
     bottom: 0;
@@ -50,19 +53,23 @@ const Action = styled.a`
 `;
 
 export function Post(props: Props): React.ReactElement {
-  const { heading, readTime, primaryActionLabel, ...postInfo } = props;
+  const {
+    heading,
+    readTime,
+    primaryActionLabel,
+    textColor = "#111B3D",
+    ...postInfo
+  } = props;
 
-  const readTimeInfo = readTime && (
-    <TimeLabel color={darkTextColor}>{readTime}</TimeLabel>
-  );
+  const readTimeInfo = readTime && <TimeLabel>{readTime}</TimeLabel>;
   const primaryAction = primaryActionLabel && (
-    <Action>{primaryActionLabel}</Action>
+    <Action color={textColor}>{primaryActionLabel}</Action>
   );
 
   return (
-    <Panel>
+    <Panel color={textColor}>
       <PostInfo {...postInfo}></PostInfo>
-      <Heading color={darkTextColor}>{heading}</Heading>
+      <Heading>{heading}</Heading>
       <TwoColumnSides>
         {primaryAction}
         {readTimeInfo}
