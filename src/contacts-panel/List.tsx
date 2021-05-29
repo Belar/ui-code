@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Checkbox } from "./Checkbox";
 export interface Props {
   title: string;
   items: {
@@ -26,9 +27,6 @@ const Items = styled.ul`
 `;
 
 const Item = styled.li`
-  display: flex;
-  align-items: center;
-
   padding: 15px;
   margin: auto -15px;
 
@@ -68,11 +66,15 @@ export function List(props: Props): React.ReactElement {
   const { title, items } = props;
   const listItems = items.map(({ imageUrl, label, sublabel }, index) => (
     <Item key={index}>
-      <Avatar src={imageUrl} alt="" />
-      <ItemLabel>
-        {label}
-        <ItemSublabel>{sublabel}</ItemSublabel>
-      </ItemLabel>
+      <Checkbox>
+        <>
+          <Avatar src={imageUrl} alt="" />
+          <ItemLabel>
+            {label}
+            <ItemSublabel>{sublabel}</ItemSublabel>
+          </ItemLabel>
+        </>
+      </Checkbox>
     </Item>
   ));
 
