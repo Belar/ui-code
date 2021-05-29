@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { SearchBar } from "./SearchBar";
+
 export interface Props {
   title: string;
   list: {
@@ -87,6 +89,7 @@ export function SearchList(props: Props): React.ReactElement {
           </CloseIcon>
         </Close>
       </Header>
+      <SearchBar></SearchBar>
     </Panel>
   );
 }
