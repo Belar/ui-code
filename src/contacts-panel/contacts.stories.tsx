@@ -10,7 +10,7 @@ export default {
     docs: {
       description: {
         component:
-          'Based on "New Message" from day #1235 of [uidesigndaily.com](https://www.uidesigndaily.com/posts/figma-new-message-pop-up-modal-day-1235).',
+          'Based on "New Message" from day #1235 of [uidesigndaily.com](https://www.uidesigndaily.com/posts/figma-new-message-pop-up-modal-day-1235). Photos: [Allef Vinicius](https://unsplash.com/photos/c9jTFfa7Njg), [Min Ann](https://www.pexels.com/photo/woman-in-v-neck-trumpet-sleeved-dress-1115697/), [Jackson David](https://www.pexels.com/photo/man-wearing-crew-neck-shirt-3147528/)',
       },
     },
     backgrounds: {
@@ -32,6 +32,16 @@ search.args = {
         imageUrl: "post_author.jpg",
         label: "David Jacobsen",
         sublabel: "@davj",
+      },
+      {
+        imageUrl: "person-2.jpg",
+        label: "Daniel Doe",
+        sublabel: "@dand",
+      },
+      {
+        imageUrl: "person-3.jpg",
+        label: "Jenna Lou",
+        sublabel: "@JLou",
       },
     ],
   },

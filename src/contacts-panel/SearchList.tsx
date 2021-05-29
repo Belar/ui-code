@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { SearchBar } from "./SearchBar";
@@ -60,6 +60,17 @@ const CloseIcon = styled.svg`
 
 export function SearchList(props: Props): React.ReactElement {
   const { title, list } = props;
+  const { items } = list;
+
+  const [searchPhrase, setSearchPhrase] = useState("");
+
+  const filteredItems = items.filter(({ label, sublabel }) =>
+    hasPhrase([label, sublabel], searchPhrase)
+  );
+  const filteredList = {
+    ...list,
+    items: filteredItems,
+  };
 
   return (
     <Panel>
@@ -81,8 +92,12 @@ export function SearchList(props: Props): React.ReactElement {
           </CloseIcon>
         </Close>
       </Header>
-      <SearchBar></SearchBar>
-      <List {...list} />
+      <SearchBar handleInput={(value) => setSearchPhrase(value)}></SearchBar>
+      <List {...filteredList} />
     </Panel>
   );
+}
+
+function hasPhrase(entries: string[], phrase: string) {
+  return entries.some((entry) => entry.includes(phrase));
 }

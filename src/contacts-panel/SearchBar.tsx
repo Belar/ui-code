@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+export interface Props {
+  handleInput: (string) => void;
+}
+
 const Bar = styled.div`
   position: relative;
   margin: 25px auto 35px;
@@ -36,7 +40,9 @@ const Icon = styled.svg`
   margin-left: 22px;
 `;
 
-export function SearchBar(): React.ReactElement {
+export function SearchBar(props: Props): React.ReactElement {
+  const { handleInput } = props;
+
   return (
     <Bar>
       <Icon
@@ -52,7 +58,14 @@ export function SearchBar(): React.ReactElement {
           d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
         />
       </Icon>
-      <Input aria-label="Search" type="text" placeholder="Type to search" />
+      <Input
+        aria-label="Search"
+        type="text"
+        placeholder="Type to search"
+        onInput={(event: React.ChangeEvent<HTMLInputElement>) =>
+          handleInput(event.target.value)
+        }
+      />
     </Bar>
   );
 }
