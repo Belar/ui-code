@@ -2,19 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 import { SearchBar } from "./SearchBar";
+import { List, Props as ListProps } from "./List";
 
 export interface Props {
   title: string;
-  list: {
-    title: string;
-    items: [
-      {
-        imageUrl: string;
-        label: string;
-        sublabel: string;
-      }
-    ];
-  };
+  list: ListProps;
 }
 
 const Panel = styled.div`
@@ -67,7 +59,7 @@ const CloseIcon = styled.svg`
 `;
 
 export function SearchList(props: Props): React.ReactElement {
-  const { title } = props;
+  const { title, list } = props;
 
   return (
     <Panel>
@@ -90,6 +82,7 @@ export function SearchList(props: Props): React.ReactElement {
         </Close>
       </Header>
       <SearchBar></SearchBar>
+      <List {...list} />
     </Panel>
   );
 }
