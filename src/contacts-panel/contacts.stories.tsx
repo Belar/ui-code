@@ -7,6 +7,7 @@ export default {
   title: "Contacts/Search",
   component: SearchList,
   parameters: {
+    layout: "padded",
     docs: {
       description: {
         component:
