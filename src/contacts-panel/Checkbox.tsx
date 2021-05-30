@@ -3,6 +3,8 @@ import styled from "styled-components";
 
 export interface Props {
   children: React.ReactElement;
+  isChecked: boolean;
+  handleChange: () => void;
 }
 
 const CheckLabel = styled.label`
@@ -57,13 +59,19 @@ const CheckboxInput = styled.input`
   }
 `;
 export function Checkbox(props: Props): React.ReactElement {
-  const { children: labelContent } = props;
+  const { children: labelContent, isChecked, handleChange } = props;
 
   return (
     <CheckLabel>
       {labelContent}
       <Check>
-        <CheckboxInput type="checkbox" name="" id="" />
+        <CheckboxInput
+          type="checkbox"
+          name=""
+          id=""
+          checked={isChecked}
+          onChange={handleChange}
+        />
         <CheckIcon
           className="icon"
           xmlns="http://www.w3.org/2000/svg"

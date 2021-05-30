@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import { Checkbox } from "./Checkbox";
 export interface Props {
   title: string;
   items: {
+    id: string;
     imageUrl: string;
     label: string;
     sublabel: string;
@@ -64,19 +65,36 @@ const Avatar = styled.img`
 
 export function List(props: Props): React.ReactElement {
   const { title, items } = props;
-  const listItems = items.map(({ imageUrl, label, sublabel }, index) => (
-    <Item key={index}>
-      <Checkbox>
-        <>
-          <Avatar src={imageUrl} alt="" />
-          <ItemLabel>
-            {label}
-            <ItemSublabel>{sublabel}</ItemSublabel>
-          </ItemLabel>
-        </>
-      </Checkbox>
-    </Item>
-  ));
+
+  const [selected, setSelected] = useState([]);
+
+  const toggleSelection = ({ id, isSelected }) => {
+    const selectedUpdated = isSelected
+      ? selected.filter((selectedId) => selectedId !== id)
+      : [...selected, id];
+    setSelected(selectedUpdated);
+  };
+
+  const listItems = items.map(({ id, imageUrl, label, sublabel }, index) => {
+    const isSelected = selected.includes(id);
+
+    return (
+      <Item key={index}>
+        <Checkbox
+          isChecked={isSelected}
+          handleChange={() => toggleSelection({ id, isSelected })}
+        >
+          <>
+            <Avatar src={imageUrl} alt="" />
+            <ItemLabel>
+              {label}
+              <ItemSublabel>{sublabel}</ItemSublabel>
+            </ItemLabel>
+          </>
+        </Checkbox>
+      </Item>
+    );
+  });
 
   return (
     <>

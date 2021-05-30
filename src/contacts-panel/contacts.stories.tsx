@@ -29,16 +29,19 @@ search.args = {
     title: "Recent conversation",
     items: [
       {
+        id: 1,
         imageUrl: "post_author.jpg",
         label: "David Jacobsen",
         sublabel: "@davj",
       },
       {
+        id: 2,
         imageUrl: "person-2.jpg",
         label: "Daniel Doe",
         sublabel: "@dand",
       },
       {
+        id: 3,
         imageUrl: "person-3.jpg",
         label: "Jenna Lou",
         sublabel: "@JLou",
